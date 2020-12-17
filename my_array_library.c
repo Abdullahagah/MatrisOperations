@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "my_array_library.h"
+#include "my_array_library.h"		
 
-void print_All_Array (int arr[100][100],int row,int column){
+void print_All_Array (int arr[100][100],int row,int column){	// elemanların bastırılması
 	int i,j;
 	for(i=0;i<row;i++){
 		for(j=0;j<column;j++){
@@ -14,7 +14,7 @@ void print_All_Array (int arr[100][100],int row,int column){
 }
 
 
-void input_Array(int arr[100][100],int row,int column){
+void input_Array(int arr[100][100],int row,int column){	// elemanların alınması
 	int i,j;
 	for(i=0;i<row;i++){
 		for(j=0;j<column;j++){
@@ -22,12 +22,12 @@ void input_Array(int arr[100][100],int row,int column){
 			scanf("%d",&arr[i][j]);
 		}
 	}
-	print_All_Array(arr,row,column);
+	print_All_Array(arr,row,column);	// alınan elemanların tekrar bastırılması
 }
 
 
 
-void print_nth_mth(int arr[100][100],int row,int column){
+void print_nth_mth(int arr[100][100],int row,int column){		// koordinatlara göre eleman bastırma
 	int N,M;
 	printf("Aradiginiz elemanin koordinatlarini giriniz.\n");
 	printf("x: ");	scanf("%d",&N);
@@ -44,7 +44,7 @@ void print_nth_mth(int arr[100][100],int row,int column){
 }
 
 
-void print_Index_Of_Element(int arr[100][100],int row,int column){
+void print_Index_Of_Element(int arr[100][100],int row,int column){ // elemanın indexini bastırma
 	int key,kontrol = 0;int indexN = 0,indexM=0,i,j;
 	
 	printf("Koordinatlari bulunacak elemani giriniz: ");
@@ -57,7 +57,7 @@ void print_Index_Of_Element(int arr[100][100],int row,int column){
 			}
 		}
 	}
-	if (kontrol == 1){
+	if (kontrol == 1){		// elemanın olup olmama dururmu
 		printf("Aradiginiz elaman %d. satir %d. sutundadir",indexN,indexM);
 	}
 	else
@@ -67,10 +67,10 @@ void print_Index_Of_Element(int arr[100][100],int row,int column){
 	printf("\n");
 }
 
-void finder_Number_Of_Nonrepeat_Values(int arr[100][100],int row,int column){
+void finder_Number_Of_Nonrepeat_Values(int arr[100][100],int row,int column){		// dizide sadece 1 adet bulunan elemanların sayısını bastırma
 	int i,j,k,l; int numberNonRepeat, kontrol=0;
 	
-	for(i=0;i<row;i++){
+	for(i=0;i<row;i++){				// her bir eleman dizide tekrar arandı ve var olduğu adet kadar sayaç arttırıldı
 		for(j=0;j<column;j++){
 			for(k=0;k<row;k++){
 				for(l=0;l<column;l++){
@@ -79,8 +79,11 @@ void finder_Number_Of_Nonrepeat_Values(int arr[100][100],int row,int column){
 					}
 				}
 			}
-			if(kontrol == 1){
+			if(kontrol == 1){		// sayaç 1 se tek sayılar 1 attırıldı
 				numberNonRepeat++;
+				kontrol = 0;
+			}
+			else {
 				kontrol = 0;
 			}
 		}
@@ -90,7 +93,7 @@ void finder_Number_Of_Nonrepeat_Values(int arr[100][100],int row,int column){
 	printf("\n");
 }
 
-void finder_Min_Element(int arr[100][100],int row,int column){
+void finder_Min_Element(int arr[100][100],int row,int column){	// arrayin en küçük eleamnı bastırma
 	int i,j; int min=arr[0][0];
 	
 	for(i=0;i<row;i++){
@@ -105,7 +108,7 @@ void finder_Min_Element(int arr[100][100],int row,int column){
 	printf("\n");	
 }
 
-void finder_Max_Element_Rows_Columns(int arr[100][100],int row,int column){
+void finder_Max_Element_Rows_Columns(int arr[100][100],int row,int column){	// her satirin ve sütünun  en büyük elemanı bastirildi
 	int i,j,l,k,m; int maxRow=-999999; int maxColumn = -999999;
 	l = 1;
 	for(i=0;i<row;i++){
@@ -130,7 +133,7 @@ void finder_Max_Element_Rows_Columns(int arr[100][100],int row,int column){
 	printf("\n");
 }
 
-void sorter_Rows_Decending_By_BubbleSort(int arr[100][100],int row,int column){
+void sorter_Rows_Decending_By_BubbleSort(int arr[100][100],int row,int column){	// her satir büyükten küçüğe sıralandı
 	int i,j,l,temp;
 	
 	for(i=0;i<row;i++){
@@ -148,11 +151,11 @@ void sorter_Rows_Decending_By_BubbleSort(int arr[100][100],int row,int column){
 	print_All_Array(arr,row,column);
 }
 	
-void finder_Transpose_Of_Array(int arr[100][100],int row,int column){
+void finder_Transpose_Of_Array(int arr[100][100],int row,int column){	// matrisin devriğini bastırma
 	int i,j; int arr2[100][100];
 	
 	for(i=0;i<row;i++){
-		for(j=0;j<column;j++){
+		for(j=0;j<column;j++){				// koordinatlar terslenerek devriği alınması
 			arr2[j][i] = arr[i][j];
 		}
 	}
@@ -164,7 +167,7 @@ int finder_Product_Of_Two_Arrays(int arr[100][100],int row,int column,int arr2[1
 	int i,j,k; int arrProduct[100][100];
 
 	printf("1. Matris >> \n");
-	print_All_Array(arr,row,column);	
+	print_All_Array(arr,row,column);		// iki matrisin matris kurallarina göre çarpilmasi
 
 	printf("2. Matris >> \n");
 	print_All_Array(arr2,row2,column2);	
@@ -180,16 +183,16 @@ int finder_Product_Of_Two_Arrays(int arr[100][100],int row,int column,int arr2[1
 			}
 		}
 	}
-	printf("Iki matrisin carpimi >> \n");
+	printf("Iki matrisin carpimi >> \n");		// sonuç matrisinin bastirilmasi
 	print_All_Array(arrProduct,row,column);	
 }
 
-void controller_Whether_Identity_Matrix_Not(int arr[100][100],int row,int column){
+void controller_Whether_Identity_Matrix_Not(int arr[100][100],int row,int column){		// birim matris kontrolü
 	int i,j; int counterDiag = 0; int counterOutDiag = 0;
 
 	if (row == column){
 		for(i=0;i<row;i++){
-			for(j=0;j<column;j++){
+			for(j=0;j<column;j++){		// n x n matriste olması gereken 1 ve 0 sayisina göre birim matris kontrolü
 				if ((i == j)){
 					if ((arr[i][j] == 1) && (arr[j][i] == 1))
 						counterDiag++;								
@@ -220,7 +223,7 @@ void controller_Whether_Symmetric_Matrix_Not(int arr[100][100],int row,int colum
 	int i,j; int counter = 0;
 	
 	if (row == column){
-		for(i=0;i<row;i++){
+		for(i=0;i<row;i++){				// simetrik matriste bulunması gerek eşit sayı miktarı kontrolüyle simetrik matris kontolü
 			for(j=0;j<column;j++){
 				if (i  == j){				
 				continue;
