@@ -1,6 +1,8 @@
 #ifndef my_array_library_h_
 #define my_array_library_h_
-
+/*
+fonksiyonların prototiplenmesi
+*/
 
 void input_Array(int arr[100][100],int row,int column);
 void print_All_Array(int arr[100][100],int row,int column);
